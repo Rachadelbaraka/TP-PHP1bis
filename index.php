@@ -21,4 +21,27 @@ $nombre = 5;
 for ($i = 1; $i <= 10; $i++) {
     echo "$nombre x $i = " . ($nombre * $i) . "<br>";
 }
+// boucle for each // 
 
+echo "<h3>Exercice 1 : Tableau simple</h3>";
+$fruits = ["pomme", "banane", "orange", "fraise", "kiwi"];
+foreach ($fruits as $fruit) {
+    echo $fruit . "<br>";
+}
+
+echo "<h3>Exercice 2 : Tableau associatif</h3>";
+$notes = ["Maths" => 15, "Français" => 12, "Histoire" => 14];
+foreach ($notes as $matiere => $note) {
+    echo "$matiere : $note/20<br>";
+}
+
+echo "<h3>Exercice 3 : Tableau multidimensionnel</h3>";
+$etudiants = [
+    ["nom" => "Martin", "note" => 15],
+    ["nom" => "Durand", "note" => 12],
+    ["nom" => "Petit", "note" => 18]
+];
+foreach ($etudiants as $etudiant) {
+    echo $etudiant["nom"] . " a eu " . $etudiant["note"] . "/20<br>";
+}
+?>
