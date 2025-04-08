@@ -2,7 +2,9 @@
 <?php
 // TP PHP 1 // 
 
-//bouclefor// 
+// Boucle for //
+
+// Exercice 1 //
 
 echo "<h3>Exercice 1 : Afficher les nombres de 1 à 10</h3>";
 for ($i = 1; $i <= 10; $i++) {
