@@ -2,6 +2,7 @@
 <?php
 // TP PHP 1 // 
 
+//Boucle for each //
 
 // Exercice 1: 
 $fruits = ["pomme", "banane", "orange", "fraise", "kiwi"];
