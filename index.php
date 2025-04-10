@@ -1,23 +1,31 @@
 <?php
-echo "<h3>Exercice 1 : Message selon le jour</h3>";
-$jour = date('l');
-$message = "";
+$host = 'localhost';
+$dbname = 'tp_php';
+$username = 'root';
+$password = '';
+$charset = 'utf8mb4';
 
-switch ($jour) {
-    case 'Lundi' : $message = "Bon lundi, bon courage !"; break;
-    case 'Vendredi' : $message = "Cest bientôt le weekend !"; break;
-    case 'samedi' : $message = "Repose toi bien aujourd'hui"; break;
-    default: $message = "Bonne journée !"; break;
-}
-echo "Aujourd'hui c'est $jour : $message<br><br>";
+$dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+];
 
-echo "<h3>Exercice 2 : Notation</h3>";
-$note = 15;
-switch (true) {
-    case ($note >= 16): echo "Note: $note/20 - Très bien"; break;
-    case ($note >= 14): echo "Note: $note/20 - Bien"; break;
-    case ($note >= 12): echo "Note: $note/20 - Assez bien"; break;
-    case ($note >= 10): echo "Note: $note/20 - Passable"; break;
-    default: echo "Note: $note/20 - Insuffisant"; break;
-}
+try {
+    $pdo = new PDO($dsn, $username, $password, $options);
+    echo "Connexion réussie !<br>";
+
+    // Exercice 1 : Insertion
+    $stmt = $pdo->prepare("INSERT INTO utilisateurs (nom, age) VALUES (?, ?)");
+    $stmt->execute(['Alice', 25]);
+    echo "Nouvel utilisateur inséré avec l'ID : " . $pdo->lastInsertId() . "<br>";
+
+    // Exercice 2 : Sélection
+    $stmt = $pdo->query("SELECT * FROM utilisateurs WHERE age > 30");
+    foreach ($stmt as $user) {
+        echo $user['nom'] . " - " . $user['age'] . " ans<br>";
+    }
+
+ 
 
