@@ -4,9 +4,9 @@ $jour = date('l');
 $message = "";
 
 switch ($jour) {
-    case 'Monday': $message = "Courage, c'est lundi !"; break;
-    case 'Friday': $message = "C'est bientôt le week-end !"; break;
-    case 'Sunday': $message = "Repose-toi bien aujourd'hui."; break;
+    case 'Lundi' : $message = "Bon lundi, bon courage !"; break;
+    case 'Vendredi' : $message = "Cest bientôt le weekend !"; break;
+    case 'samedi' : $message = "Repose toi bien aujourd'hui"; break;
     default: $message = "Bonne journée !"; break;
 }
 echo "Aujourd'hui c'est $jour : $message<br><br>";
@@ -20,4 +20,4 @@ switch (true) {
     case ($note >= 10): echo "Note: $note/20 - Passable"; break;
     default: echo "Note: $note/20 - Insuffisant"; break;
 }
-?>
+
