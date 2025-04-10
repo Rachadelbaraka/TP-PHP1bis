@@ -1,0 +1,7 @@
+git checkout main
+git checkout -b boucleforeach
+// on met le code suivant//
+ensuite
+git add index.php
+git commit -m "Exercices foreach"
+git push -u origin boucleforeach
