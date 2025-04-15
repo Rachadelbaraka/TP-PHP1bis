@@ -1,21 +1,28 @@
 <?php
-class Vehicule {
-    protected $marque;
-    protected $modele;
-    protected $annee;
+require_once 'Vehicule.php';
 
-    public function __construct($marque, $modele, $annee) {
-        $this->marque = $marque;
-        $this->modele = $modele;
-        $this->annee = $annee;
+class Voiture extends Vehicule {
+    private $nombrePortes;
+    private $typeCarburant;
+
+    public function __construct($marque, $modele, $annee, $nombrePortes, $typeCarburant) {
+        parent::__construct($marque, $modele, $annee);
+        $this->nombrePortes = $nombrePortes;
+        $this->typeCarburant = $typeCarburant;
     }
 
     public function getInfos() {
-        return "$this->marque $this->modele ($this->annee)";
+        return parent::getInfos() . " - $this->nombrePortes portes - $this->typeCarburant";
     }
 
-    public function demarrer() {
-        return "Le véhicule démarre.";
+    public function klaxonner() {
+        return "Tut tut !";
     }
 }
 
+// Exemple
+$v = new Voiture("Peugeot", "208", 2022, 5, "Essence");
+echo $v->getInfos() . "<br>";
+echo $v->demarrer() . "<br>";
+echo $v->klaxonner();
+?>
