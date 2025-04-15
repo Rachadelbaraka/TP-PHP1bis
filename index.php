@@ -1,25 +1,21 @@
 <?php
-class Personne {
-    private $nom;
-    private $prenom;
-    private $age;
+class Vehicule {
+    protected $marque;
+    protected $modele;
+    protected $annee;
 
-    public function __construct($nom, $prenom, $age) {
-        $this->nom = $nom;
-        $this->prenom = $prenom;
-        $this->age = $age;
+    public function __construct($marque, $modele, $annee) {
+        $this->marque = $marque;
+        $this->modele = $modele;
+        $this->annee = $annee;
     }
 
-    public function sePresenter() {
-        return "Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans.";
+    public function getInfos() {
+        return "$this->marque $this->modele ($this->annee)";
     }
 
-    public function estMajeur() {
-        return $this->age >= 18 ? "Je suis majeur." : "Je ne suis pas majeur.";
+    public function demarrer() {
+        return "Le véhicule démarre.";
     }
 }
 
-
-$p = new Personne("EL BARAKA", "Rachad", "19");
-echo $p->sePresenter() . "<br>";
-echo $p->estMajeur();
