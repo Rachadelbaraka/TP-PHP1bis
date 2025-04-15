@@ -20,6 +20,6 @@ class Personne {
 }
 
 
-$p = new Personne("EL BARAKA", "Rachad", );
+$p = new Personne("EL BARAKA", "Rachad", "19");
 echo $p->sePresenter() . "<br>";
 echo $p->estMajeur();
