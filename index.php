@@ -41,22 +41,24 @@ class Voiture extends Vehicule {
     
    
     public function klaxonner() {
-        return "Bip Bip !";
+        return "Bep Bep !";
     }
 }
 
 
 class Moto extends Vehicule {
     private $cylindree;
+    private $typeCarburant;
     
-    public function __construct($marque, $modele, $annee, $cylindree) {
+    public function __construct($marque, $modele, $annee, $cylindree, $typeCarburant) {
         parent::__construct($marque, $modele, $annee);
         $this->cylindree = $cylindree;
+        $this->typeCarburant = $typeCarburant;
     }
 
 
     public function getInfos() {
-        return parent::getInfos() . ", Cylindrée : $this->cylindree cc";
+        return parent::getInfos() . ", Cylindrée : $this->cylindree cc, Carburant : $this->typeCarburant";
     }
 
     public function faireWheelie() {
@@ -66,7 +68,7 @@ class Moto extends Vehicule {
 
 
 $voiture = new Voiture("Renault", "Clio", 2020, 5, "Essence");
-$moto = new Moto("Yamaha", "MT-07", 2022, 689);
+$moto = new Moto("Kawasaki", "RMZ", 2015, 450, "Essence");
 
 
 echo "<h2>Voiture</h2>";
